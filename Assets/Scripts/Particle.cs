@@ -7,6 +7,20 @@ using UnityEngine;
 
 public class Particle : MonoBehaviour
 {
-    Genome _source;
+    public Transform _transform
+    {
+        get { return _transform; }   // get method
+        private set { _transform = value; }  // set method
+    }
 
+    private void Start()
+    {
+        _transform = this.transform;
+        Invoke("Die", 30f);
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
 }

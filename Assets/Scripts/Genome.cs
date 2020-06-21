@@ -13,7 +13,7 @@ public class Genome : MonoBehaviour
     
     public void Enable(bool iFlag)
     {
-        this.gameObject.SetActive(iFlag);
+        gameObject.SetActive(iFlag);
 
     }
 

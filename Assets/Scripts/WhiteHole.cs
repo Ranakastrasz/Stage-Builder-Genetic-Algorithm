@@ -20,6 +20,7 @@ public class WhiteHole : MonoBehaviour
     void Start()
     {
         Spawn(); // Temp, will be from gameManager later.
+        InvokeRepeating("Spawn",0f,2f);
     }
     
     public void Spawn()

@@ -17,7 +17,7 @@ public class GameBoard : MonoBehaviour
         Particle particle = collision.gameObject.GetComponent<Particle>();
         if (particle != null)
         {
-            //particle._stageBuilder.Kill(particle);
+            particle.Die();
         }
     }
 
