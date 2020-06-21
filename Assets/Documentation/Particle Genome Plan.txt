@@ -10,7 +10,7 @@ Gene Manager depends on Genome.
 Stage and GameBoard are containers more than anything.
 
 -----
-
+ jan wuz here
 
 Game Board
 - Contains the Stage, and all Genomes, as well as the graphical background.
