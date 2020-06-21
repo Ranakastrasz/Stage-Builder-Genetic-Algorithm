@@ -1,0 +1,120 @@
+Particles are standalone.
+Entities are standalone, or depend on particles.
+
+White hole depends on Particles to exist.
+Black hole depends on Particles to exist.
+
+Genome depends on Entities existing.
+Gene Manager depends on Genome.
+
+Stage and GameBoard are containers more than anything.
+
+-----
+
+
+Game Board
+- Contains the Stage, and all Genomes, as well as the graphical background.
+- Also contains active particles.
+
+Stage
+- Contains entities, which are static and not manipulated by genomes.
+- If activated, it tells it's entities to activate, namely white hole.
+
+-GeneManager - Singleton
+- which tells which genomes to be overwritten, which to mutate, and sorts them by score and so on.
+- Can Evaluate, which tells a Genome, and the Stage to evaluate, allowing the genome to learn it's fitness score.
+
+Genome
+- Contains entities, and knows how to tell them to mutate when the Genemanager says so.
+- Can be overwritten by another genome.
+- Tracks it's own fitness score.
+----
+- Tells Entities to mutate. Tells entities to mimic another entity (if self overwritten)
+- Can be activated, activating all sub entities. 
+
+Entity
+-Entity Subtypes. Rectangle, Attractor, rotator, blackhole/ whitehole, etc.
+-- Rectangles are just box colliders that bound particles off of them.
+-- Attractors apply an attractive/repulsive Force
+-- Rotators rotate the motion vector of any particle inside them.
+
+
+Black Hole
+- The goal of particles. ACtive Genome gains score when a particle touches it, based on how much life it has left.
+
+White Hole
+- The source of Particles. Generates a large number and sends them in all directions.
+
+Particle
+- Physics rigidbody which interacts with entities, and has a limited lifespan. Destroyed if it leaves the bounds, or touches a blackhole.
+
+
+-----
+Extra Stuff
+
+Graph
+-Shows data on genomes, history, ages, etc? Dunno yet, figure out later, after functionality exists.
+
+
+-----
+
+Particle
+-Has a position and a movement vector
+-Can move as time elapses.
+Test by
+-Create several and check that vector distance from source after 1 second is roughly expected distance and direction.
+
+Entity
+-Base Class of several object types.
+-Has Location.
+-Can effect Particles intersecting, entering, or leaving it's area.
+
+White Hole.
+-Is an "Entity"
+-Can produce particles on invoke
+Test By
+-Create one, and invoke it. Count particle produced, and final positions after 1 second.
+
+Black Hole
+-Is an "Entity"
+-Can Destroy Particles on Contact.
+Test By
+-Create one, and several particles directed towards and away from it. Ensure that particles intersecting with it are destroyed, and those not intersecting are not destroyed.
+
+Game Board
+-Is play area.
+-Can destroy particles on leaving collision area.
+Test By
+-As black hole.
+
+
+Accelerator
+-Is an "Entity"
+-Has size (Circle Collision Area)
+-Has acceleration Vector (Positive or negative, always away from center of object)
+-Can accelerate Particles inside collision area.
+
+Test By
+-Create several, with varying traits and overlaps. Create particles, set to intersect and not intersect with each, and to intersect with several. Ensure particles end up in expected positions after ~5 seconds.
+
+Rotator
+-Is an "Entity"
+-Has size (Circle Collision Area)
+-Has Torque/Rotation over time, (Positive or negative)
+-Can turn Particles inside collision area. (Rotating their movement Vector)
+
+Test By 
+-Same as Accelerator
+
+Wall
+-Is an "Entity"
+-Has size (X/Y, box collision, optionally rotation as well)
+-Particles entering collision area are deflected as a bounce type effect with 100% elasticity.
+
+Test By
+-Same as Accelerator.
+
+
+Genome
+-Contains list of entities.
+-
