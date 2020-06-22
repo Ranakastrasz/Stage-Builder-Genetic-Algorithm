@@ -7,15 +7,15 @@ using UnityEngine;
 
 public class Particle : MonoBehaviour
 {
-    public Transform _transform
-    {
-        get { return _transform; }   // get method
-        private set { _transform = value; }  // set method
-    }
+    //public Transform _transform
+    //{
+    //    get { return _transform; }
+    //    protected set { _transform = value; }
+    //}
 
     private void Start()
     {
-        _transform = this.transform;
+    //    _transform = this.transform;
         Invoke("Die", 30f);
     }
 
