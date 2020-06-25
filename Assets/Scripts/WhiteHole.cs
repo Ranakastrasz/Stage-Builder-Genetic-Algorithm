@@ -19,7 +19,7 @@ public class WhiteHole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Spawn(); // Temp, will be from gameManager later.
+        Spawn(); // Temp, will be from gameManager later.
         //InvokeRepeating("Spawn",2f,2f);
     }
     
