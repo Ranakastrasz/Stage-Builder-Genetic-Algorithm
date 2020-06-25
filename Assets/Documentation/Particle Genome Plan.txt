@@ -1,3 +1,5 @@
+
+
 What is the overall goal for this program?
 
 What is a particle?
@@ -5,7 +7,7 @@ What is a particle?
     Entities are standalone, or depend on particles.
 
 What are holes?
-White hole depends on Particles to exist.
+    White hole depends on Particles to exist.
     Black hole depends on Particles to exist.
 
 What is a Genome?
