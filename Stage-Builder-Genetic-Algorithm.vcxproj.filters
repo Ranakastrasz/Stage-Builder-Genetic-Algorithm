@@ -3,7 +3,4 @@
   <ItemGroup>
     <Text Include="Assets\Documentation\Particle Genome Plan.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Documentation\Particle Genome Plan.txt.meta" />
-  </ItemGroup>
 </Project>
