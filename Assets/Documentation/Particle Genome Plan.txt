@@ -1,20 +1,30 @@
 
 
 What is the overall goal for this program?
-
+	-The goal of the program is to create an environment in which a genetic algorithm can function,
+		In such a way that all moving parts are visible and relatively simple.
 What is a particle?
-    Particles are standalone.
-    Entities are standalone, or depend on particles.
+	- A Particle is a Unity GameObject with a rigidbody attached.
+		This means it acts like a physical object, with position, velocity, momentum, intertia, and so on.
+		And can also bounce off of other gameObjects, with varying levels of elasticity.
+		It is used something like a Golf Ball in this simulation, with the objecting being to have it reach the "Black Hole"
 
 What are holes?
-    White hole depends on Particles to exist.
-    Black hole depends on Particles to exist.
+	-A White hole is the origin of Particles. When a Genome is being evaluated, a White Hole produces a large number of particles, and sends them out in all directions.
+		It is also part of the gameboard, and the genome can't touch it in any way.
+	-A Black hole is the destination of particles. Particles which touch it (Their collision box intersects with the collision box of the black hole) are destroyed
+		and a report is sent to the Genome, granting them a score point.
+		Particles are also destroyed if they leave the play area, or some amount of time passes, to avoid endless loops.
 
 What is a Genome?
-    Genome depends on Entities existing.
+	-A Genome is a container object which knows how to mutate it's contents, The contents can be pretty much any variable you are trying to optimize.
+	-In this specific simulation, it contains a list of gameObjects, as well as their location and properties.
+	-Mutating the contents means just randomly changing one or more properties, or adding or removing one or more of the objects.
 
-    What is a Gene manager?
-    Gene Manager depends on Genome.
+What is a Gene manager?
+	-The Gene Manager manages all the genomes.
+	-It is the overall manager, holding the genomes, telling them to evaluate themselves, sort them, tell them to mutate themselves, and to replace themselves with superior versions.
+
 
     Stage and GameBoard are containers more than anything.
 
