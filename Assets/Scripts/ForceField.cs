@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceField : MonoBehaviour
+public class ForceField : Entity
 {
     [SerializeField]
     private float Magnitude = 0;
@@ -35,5 +35,20 @@ public class ForceField : MonoBehaviour
     
             collider.GetComponent<Rigidbody2D>().AddForce(acceleration,ForceMode2D.Force);
         }
+    }
+
+    public override void Mutate()
+    {
+        // Quick and dirty mutation
+        if (UnityEngine.Random.value <= 0.5)
+        {
+            this.transform.position += new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0);
+        }
+        else
+        {
+            float newScale = this.transform.localScale.x + Random.value - 0.5f;
+            this.transform.localScale.Set(newScale, newScale, 0);
+        }
+
     }
 }

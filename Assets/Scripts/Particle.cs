@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Physics rigidbody which interacts with entities, and has a limited lifespan. Destroyed if it leaves the bounds, or touches a blackhole.
-
+// Really want to replace with proper particles so I can have way, way more of them.
+// But that requires research.
 
 public class Particle : MonoBehaviour
 {

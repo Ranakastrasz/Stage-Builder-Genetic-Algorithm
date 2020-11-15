@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class GameBoard : MonoBehaviour
 {
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Border Patrol.

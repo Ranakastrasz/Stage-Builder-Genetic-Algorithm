@@ -22,15 +22,42 @@ public class Genome : MonoBehaviour
         _fitness += iScore;
     }
 
-    public void ResetFitness()
+    public void Reload()
     {
         _fitness = 0;
+        foreach (GameObject child in transform)
+        {
+            Entity entity = child.GetComponent<Entity>();
+            if (entity != null)
+            {
+                entity.Reload();
+            }
+        }
     }
-
     public int GetFitness()
     {
         return _fitness;
     }
 
-    // Mutation
+    public Genome Clone()
+    {
+        Genome oGenome = Instantiate(this, this.transform.parent);
+        return oGenome;
+    }
+
+    public void Mutate(float iMutationFactor)
+    {
+        // May also add ability to create/destroy as well. Later. Maybe
+        foreach (GameObject child in transform)
+        {
+            if (UnityEngine.Random.value < iMutationFactor)
+            {
+                Entity entity = child.GetComponent<Entity>();
+                if (entity != null)
+                {
+                    entity.Mutate(); // Might include parameters later.
+                }
+            }
+        }
+    }
 }

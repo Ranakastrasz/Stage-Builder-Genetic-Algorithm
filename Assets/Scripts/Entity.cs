@@ -4,6 +4,12 @@ using UnityEngine;
 
 // baseclass of all Entity types.
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
+
+    public virtual void Mutate()
+    {}
+
+    public virtual void Reload()
+    {}
 }

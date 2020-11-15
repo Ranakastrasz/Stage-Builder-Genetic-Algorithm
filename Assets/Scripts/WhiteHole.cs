@@ -5,7 +5,7 @@ using UnityEngine;
 // The source of Particles.Generates a large number and sends them in all directions.
 
 
-public class WhiteHole : MonoBehaviour
+public class WhiteHole : Entity
 {
     public GameObject _particlePrototype; // Particle GameObject.
     
@@ -19,8 +19,13 @@ public class WhiteHole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spawn(); // Temp, will be from gameManager later.
+        //Spawn(); // Temp, will be from gameManager later.
         //InvokeRepeating("Spawn",2f,2f);
+    }
+
+    public void Activate(bool iFlag = true)
+    {
+        Spawn();
     }
     
     public void Spawn()
@@ -35,5 +40,10 @@ public class WhiteHole : MonoBehaviour
             //newObj.transform.parent = GameBoard._instance._particleContainer.transform;
             //newObj.GetComponent<Particle>()._stageBuilder = _stageBuilder;
         }
+    }
+
+    public override void Mutate()
+    {
+        throw new System.NotImplementedException();
     }
 }

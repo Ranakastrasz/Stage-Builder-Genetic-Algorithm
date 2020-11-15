@@ -12,4 +12,21 @@ public class GeneManager : MonoBehaviour
     // Override Low-grade Genomes.
     // Mutate Genomes.
     // Repeat.
+
+    public void Start()
+    {
+        
+    }
+
+    public void TestGenome(Genome iGenome)
+    {
+        iGenome.Reload();
+        iGenome.Enable(true);
+        foreach (GameObject child in Stage.Active.transform)
+        { 
+            //child.
+        }
+
+    }
+
 }

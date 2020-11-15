@@ -7,4 +7,10 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
+    public static Stage Active;
+
+    public void Start()
+    {
+        Active = this;
+    }
 }
